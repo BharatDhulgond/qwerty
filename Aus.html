@@ -1,0 +1,1318 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.loader_bg {
+  position: fixed;
+  z-index: 9999999;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader img {
+  width: 280px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f57308, #fff, rgb(11, 242, 7));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #1a6ad2, #fff, rgb(245, 5, 53));
+}
+
+/*  Simillar  */
+
+section {
+  padding: 100px 0;
+}
+
+.max-width {
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+.about,
+.services,
+.skills,
+.projects,
+.contact,
+footer {
+  font-family: "Poppins", sans-serif;
+}
+
+.about .about-content,
+.services .serv-content,
+.skills .skills-content,
+.contact .contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section .title {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+section .title::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 180px;
+  height: 3px;
+  transform: translateX(-50%);
+}
+
+section .title::after {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  font-size: 20px;
+  color: #f2e9ea;
+  padding: 0 5px;
+  transform: translateX(-50%);
+}
+
+/*  Navbar  */
+
+.wrap-container1{
+  display: flex;
+  flex: 1 1 100%;
+  flex-flow: column nowrap;
+ 
+}
+
+nav{
+  background-color: rgb(62, 183, 161);
+  box-shadow: 3px 3px 5px rgba(241, 239, 239, 0.1);
+  font-size: 20px;
+  /* padding-left: -100px; */
+}
+nav ul{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav li{
+  height: 40px;
+
+}
+nav a{
+  height: 100%;
+  padding: 0 55px;
+  padding-left: 5px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  
+}
+nav a:hover{
+  background-color: #80e0cd;
+  color: black;
+ 
+}
+nav li:first-child{
+  margin-right: auto;
+}
+.sidebar1{
+  position: fixed;
+  top: 0; 
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(128, 222, 222, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: -10px 0 10px rgba(191, 153, 41, 0.1);
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color:#fefefe;
+}
+.sidebar1 li{
+  width: 100%;
+}
+.sidebar1 a{
+  width: 100%;
+}
+.menu-button1{
+  display: none;
+}
+
+
+@media(max-width: 800px){
+  .hideOnMobile{
+    display: none;
+  }
+  .menu-button1{
+    display: block;
+  }
+}
+@media(max-width: 400px){
+  .sidebar1{
+    width: 100%;
+  }
+}
+
+/*  Menu Btn  */
+.menu-btn {
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
+}
+
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  background: #1e3551;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  z-index: 9999;
+  font-size: 30px;
+  border-radius: 6px;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-up-btn:hover {
+  filter: brightness(90%);
+}
+
+/*  Home  */
+.home {
+  display: flex;
+  background: url("./av3.png") no-repeat
+    center;
+  height: 100vh;
+  color: #ffffff;
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Ubuntu", sans-serif;
+}
+
+
+
+@media screen and (max-width:499px) and (min-width:10px){
+  .home {
+  display: flex;
+  background: url("./moav3.png") no-repeat
+    center;
+  height: 100vh;
+  color: #ffffff;
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Ubuntu", sans-serif;
+}
+   
+}
+
+@media screen and (max-width:850px) and (min-width:500px){
+  .home {
+  display: flex;
+  background: url("./Mav3.png") no-repeat
+    center;
+  height: 100vh;
+  color: #ffffff;
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Ubuntu", sans-serif;
+}
+
+}
+
+.home .max-width {
+  width: 100%;
+  display: flex;
+}
+
+.home .max-width .row {
+  margin-right: 0;
+}
+
+.home .home-content .text-1 {
+  font-size: 27px;
+}
+
+.home .home-content .text-2 {
+  font-size: 75px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+
+.home .home-content .text-3 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+
+/* Linear Gradient */
+.home .home-content .text-3 span {
+  color: #1e3551;
+  background: linear-gradient(135deg, #041d3d, #010101, rgb(126, 101, 106));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+
+.home .home-content a {
+  display: inline-block;
+  background: #1dcab9;
+  color: #fff;
+  font-size: 25px;
+  padding: 12px 36px;
+  margin-top: 20px;
+  font-weight: 400;
+  border-radius: 6px;
+  border: 2px solid #26baa6;
+  transition: all 0.3s ease;
+}
+
+.home .home-content a:hover {
+  color: #13ffd8;
+  background: none;
+  animation: pulsate 1s ease-in-out;
+}
+
+/*  About  */
+.about {
+  background: radial-gradient(#353333, rgb(0, 0, 0));
+}
+/* .about .title::after {
+  content: "—Harry, Hermoine or Ron ?—";
+  text-overflow: ellipsis;
+  display: -webkit-inline-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+} */
+
+.about .about-content .left {
+  width: 45%;
+}
+
+.about .about-content .left img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.about .about-content .right {
+  width: 55%;
+}
+
+.about .about-content .right .text {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Linear Gradiant */
+.about .about-content .right .text span {
+  /* color: #1e3551; */
+  background: linear-gradient(135deg, #041d3d, #fff, crimson);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about .about-content .right p {
+  text-align: justify;
+}
+
+.about .about-content .right a {
+  display: inline-block;
+  background: #0fc8bc;
+  color: #030303;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 30px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid #26c9be;
+  transition: all 0.3s ease;
+}
+
+.about .about-content .right a:hover {
+  color: #fcfcfc;
+  background: none;
+  animation: pulsate 1s ease-in-out;
+}
+
+
+
+/*  Footer  */
+footer {
+  background: #111;
+  padding: 6px 16px;
+  color: #888c8d;
+  text-align: center;
+}
+
+footer span a {
+  color: #1e3551;
+  text-decoration: none;
+}
+
+footer span a:hover {
+  text-decoration: underline;
+}
+
+/*  Media Query  */
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 25px #888e8d, 0 0 50px #1e3551;
+  }
+}
+
+@media (max-width: 1104px) {
+  .about .about-content .left img {
+    height: 350px;
+    width: 350px;
+  }
+  section .title::after {
+    bottom: -8px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .social-menu ul li a {
+    left: 114px;
+  }
+}
+
+@media (max-width: 947px) {
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+  .menu-btn i.active:before {
+    content: "\f00d";
+  }
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: #111;
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+  .navbar .menu.active {
+    left: 0;
+  }
+  .navbar .menu li {
+    display: block;
+  }
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 25px;
+  }
+  .home .home-content .text-2 {
+    font-size: 70px;
+  }
+  .home .home-content .text-3 {
+    font-size: 35px;
+  }
+  .home .home-content a {
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+  .max-width {
+    max-width: 930px;
+  }
+  .about .about-content .column {
+    width: 100%;
+  }
+  .about .about-content .left {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 60px;
+  }
+  .about .about-content .right {
+    flex: 100%;
+  }
+  .services .serv-content .card {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+  .skills .skills-content .column,
+  .contact .contact-content .column {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 690px) {
+  .max-width {
+    padding: 0 23px;
+  }
+  .home .home-content .text-2 {
+    font-size: 60px;
+  }
+  .home .home-content .text-3 {
+    font-size: 32px;
+  }
+  .home .home-content a {
+    font-size: 20px;
+  }
+  .services .serv-content .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .home .home-content .text-2 {
+    font-size: 50px;
+  }
+  .home .home-content .text-3 {
+    font-size: 27px;
+  }
+  .about .about-content .right .text,
+  .skills .skills-content .left .text {
+    font-size: 19px;
+  }
+  .contact .right form .fields {
+    flex-direction: column;
+  }
+  .contact .right form .name,
+  .contact .right form .email {
+    margin: 0;
+  }
+  .right form .error-box {
+    width: 150px;
+  }
+  .scroll-up-btn {
+    right: 15px;
+    bottom: 15px;
+    height: 38px;
+    width: 35px;
+    font-size: 23px;
+    line-height: 38px;
+  }
+}
+.text{
+  color: #05b3a4;
+}
+/* footer starts */
+
+/*Footer with waves*/
+
+
+.footer {
+  position: relative;
+  background: #05b3a4;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top:35%;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+.menu__link:hover{
+	color: white;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+/* icons starts*/
+/* /* body {
+    background: #D0D8DB;
+    padding-top: 60px;
+    padding-bottom: 40px;
+} */
+
+/* textarea {
+    resize: none;
+}
+ */
+/* .text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  white-space: nowrap;
+/* }
+ */
+ @charset "UTF-8";
+
+ .svg-inline--fa {
+   vertical-align: -0.200em;
+ }
+ 
+ .rounded-social-buttons {
+   text-align: center;
+ }
+ 
+ .rounded-social-buttons .social-button {
+   display: inline-block;
+   position: relative;
+   cursor: pointer;
+   width: 3.625rem;
+   height: 3.625rem;
+   border: 0.125rem solid transparent;
+   padding-top: 12px;
+   text-decoration: none;
+   text-align: center;
+   color: #fefefe;
+   font-size: 1.5625rem;
+   font-weight: normal;
+   line-height: 2em;
+   border-radius: 3.6875rem;
+   transition: all 0.5s ease;
+   margin-right: 0.85rem;
+   margin-bottom: 0.85rem;
+ }
+ 
+ .rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+   -webkit-transform: rotate(360deg);
+       -ms-transform: rotate(360deg);
+           transform: rotate(360deg);
+ }
+ 
+ .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-tiktok, .fa-youtube, .fa-instagram {
+   font-size: 25px;
+ }
+ 
+ 
+ .rounded-social-buttons .social-button.instagram {
+   background: #000000;
+ }
+ 
+ .rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+   color: #125688;
+   background: #fefefe;
+   border-color: #000000;
+ }
+ 
+ .rounded-social-buttons .social-button.envelope {
+   background: #000000;
+ }
+ 
+ .rounded-social-buttons .social-button.envelope:hover, .rounded-social-buttons .social-button.envelope:focus {
+   color: #125688;
+   background: #fefefe;
+   border-color: #125688;
+ }
+
+
+/* icons ends */
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.imgur.com/ZAts69f.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+.profile .body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+
+  display: grid;
+  place-items: center;
+}
+
+
+.profile section {
+  --childs: 5;
+  --gap: 60px;
+  background: black;
+  border: 10px solid;
+  width: min(100%, 1600px);
+  display: flex;
+  gap: var(--gap);
+  padding-left: 85px;
+}
+
+
+@media only screen and (max-width:500px){
+  .profile section {
+  --childs: 5;
+  --gap: 90px;
+  background: rgb(0, 0, 0);
+  border: 30px solid;
+  width: min(180%, 1990px);
+  display: flex;
+  gap: var(--gap);
+  padding-left: 5px;
+}
+  
+.box {
+  width: calc((100% / var(--childs)));
+  box-sizing: border-box;
+  height: min(45vmin, 450px);
+  background-color: white;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: width 200ms 20ms ease-in-out;
+}
+
+
+
+}
+.box {
+  width: calc((100% / var(--childs)));
+  box-sizing: border-box;
+  height: min(45vmin, 450px);
+  background-color: white;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: width 300ms 50ms ease-in-out;
+}
+
+.box:hover {
+  width: calc((100% / (var(--childs) - 2)));
+}
+
+section:has(.box:hover) .box:not(:hover) {
+  width: calc((100% / (var(--childs) + 1)));
+}
+
+.box-1 {
+  background-image: url("./gall/p5.jpeg");
+}
+
+.box-2 {
+  background-image: url("./gall/sharad.jpeg");
+}
+
+.box-3 {
+  background-image: url("./gall/p8.png");
+}
+
+.box-4 {
+  background-image: url("./gall/p10.png");
+}
+
+.box-5 {
+  background-image: url("./gall/p4.jpeg");
+}
+.box-6 {
+  background-image: url("./gall/p6.jpeg");
+}
+.box-7 {
+  background-image: url("./gall/Shudarshan.jpeg");
+}
+.box-8 {
+  background-image: url("./gall/bdd.jpeg");
+}
+.box-9 {
+  background-image: url("./gall/ajith.jpeg");
+}
+.box-10 {
+  background-image: url("./gall/ankur.png");
+}
+.box-11 {
+  background-image: url("./gall/vaishak.jpeg");
+}
+@media screen and (max-width:850px)  {
+  
+.profile .body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+
+  /* display: grid; */
+  place-items: center;
+}
+
+.profile section {
+  --childs: 5;
+  --gap: 10px;
+  background: black;
+  border: 10px solid;
+  width: min(100%, 600px);
+  display: flex;
+  gap: var(--gap);
+}
+.box {
+  width: calc((100% / var(--childs)));
+  box-sizing: border-box;
+  height: min(95vmin, 650px);
+  background-color: white;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: width 600ms 450ms ease-in-out;
+}
+
+.box:hover {
+  width: calc((2500% / (var(--childs) - 2)));
+}
+
+section:has(.box:hover) .box:not(:hover) {
+  width: calc((100% / (var(--childs) + 1)));
+}
+
+.box-1 {
+  background-image: url("./gall/p5.jpeg");
+}
+
+.box-2 {
+  background-image: url("./gall/sharad.jpeg");
+}
+
+.box-3 {
+  background-image: url("./gall/p8.png");
+}
+
+.box-4 {
+  background-image: url("./gall/p10.png");
+}
+
+.box-5 {
+  background-image: url("./gall/p4.jpeg");
+}
+.box-6 {
+  background-image: url("./gall/p6.jpeg");
+}
+.box-7 {
+  background-image: url("./gall/Shudarshan.jpeg");
+}
+.box-8 {
+  background-image: url("./gall/bdd.jpeg");
+}
+.box-9 {
+  background-image: url("./gall/ajith.jpeg");
+}
+.box-10 {
+  background-image: url("./gall/ankur.png");
+}
+
+  
+}
+
+    </style>
+
+</head>
+
+
+
+
+<body background="https://static.vecteezy.com/system/resources/previews/025/501/407/non_2x/sports-equipment-on-a-black-background-sport-concept-copy-space-sports-equipment-on-a-dark-background-ai-generated-free-photo.jpg">
+    <div class="scroll-up-btn">
+      <i class="fas fa-angle-up"></i>
+    </div>
+  
+    <!-- Header -->
+    <div class="wrap-container1">
+      <nav>
+    
+        <ul class="sidebar1">
+          <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="https://iiitbunited.wordpress.com/cricket-registrations/">Register</a></li>
+          <li><a href="./Aus.html">About Us</a></li>
+          <li><a href="./Gallery.html">Gallery</a></li>
+        </ul>
+    
+        <ul >
+          <li ><a href="#"><img src="./iiitb_logo.png" height="50px"></a></li>
+          <li class="hideOnMobile"><a href="./index.html">Home</a></li>
+          <li class="hideOnMobile"><a href="https://iiitbunited.wordpress.com/cricket-registrations/">Register</a></li>
+          <li class="hideOnMobile"><a href="./Aus.html">About Us</a></li>
+          <li class="hideOnMobile"><a href="./Gallery.html">Gallery</a></li>
+          <li class="menu-button1" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+        </ul>
+        
+      </nav> 
+    </div>
+    <!-- Home -->
+    <section class="home" id="home">
+      <div class="max-width">
+        <!-- <div class="home-content">
+          <div class="text-1">Hello, This is</div>
+          <div class="text-2">Team Web Wizards</div>
+          <div class="text-3">"Building the web, pixel by pixel, code by code."</div>
+          
+        </div> -->
+      </div>
+    </section>
+  
+   
+    <!--  About anshul -->
+    <section class="about" id="about">
+        <div class="max-width">
+          <h2 class="title"><font style="color: #98ced6; font-weight: bold;">Players info : IIITB United members</font></h2>
+          <div class="about-content">
+            <div class="column left">
+              <img src="./gall/p1.jpeg" alt="Profile Image 626x626">
+            </div>
+            <div class="column right">
+              <div class="text" style="color: #19ba94;">Hello, I'm Anshul Garg (captain) <span class="typing-2"></span></div>
+              <p style="color: #ffffff;">"Introduce yourself, your passion for cricket and other sports,give message to onboarding students.
+                Future prospects of this club, and share other plans and how each one is benefitted and Opportunities are given."</p>
+              <br>
+             
+    
+              <a href="https://www.instagram.com/harrypotter/" target="blank">Follow me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!--  About shivang-->
+    <section class="about" id="about">
+        <div class="max-width">
+         
+          <div class="about-content">
+            <div class="column left">
+              <img src="./gall/p9.png" alt="Profile Image 626x626">
+            </div>
+            <div class="column right">
+              <div class="text" >Hi, I'm Shivang Trivedi (vice-captain)  <span class="typing-2"></span></div>
+              <p style="color: #ffffff;">"Introduce yourself, your passion for cricket and other sports,give message to onboarding students.
+                Future prospects of this club, and share other plans and how each one is benefitted and Opportunities are given."</p>
+              <br>
+              
+    
+              <a href="https://www.instagram.com/harrypotter/" target="blank">Follow me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+       <!--  About sumit -->
+    <section class="about" id="about">
+      <div class="max-width">
+   
+        <div class="about-content">
+          <div class="column left">
+            <img src="./gall/p7.jpeg" alt="Profile Image 626x626">
+          </div>
+          <div class="column right">
+            <div class="text">Hello, I'm Sumit Dutta (All-Rounder) <span class="typing-2"></span></div>
+            <p style="color: #ffffff;">"Introduce yourself, your passion for cricket and other sports,give message to onboarding students.
+              Future prospects of this club, and share other plans and how each one is benefitted and Opportunities are given."
+                 </p>
+            
+  
+            <a href="https://www.instagram.com/harrypotter/" target="blank">Follow me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+       <!--  About akash -->
+       <section class="about" id="about">
+        <div class="max-width">
+          
+          <div class="about-content">
+            <div class="column left">
+              <img src="./gall/akash.png" alt="Profile Image 626x626">
+            </div>
+            <div class="column right">
+              <div class="text">Hi, I'm Akash Singh (Bowler)<span class="typing-2"></span></div>
+              <p style="color: #ffffff;">"Introduce yourself, your passion for cricket and other sports,give message to onboarding students.
+                Future prospects of this club, and share other plans and how each one is benefitted and Opportunities are given."
+                   </p>
+              
+    
+              <a href="https://www.instagram.com/harrypotter/" target="blank">Follow me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+             <!--  About sukrut -->
+    <section class="about" id="about">
+      <div class="max-width">
+       
+        <div class="about-content">
+          <div class="column left">
+            <img src="./gall/p2.jpeg" alt="Profile Image 626x626">
+          </div>
+          <div class="column right">
+            <div class="text">Hello, I'm Sukrut Dekhane (Wicket keeper) <span class="typing-2"></span></div>
+            <p style="color: #ffffff;">"Introduce yourself, your passion for cricket and other sports,give message to onboarding students.
+              Future prospects of this club, and share other plans and how each one is benefitted and Opportunities are given."
+                 </p>
+            
+  
+            <a href="https://www.instagram.com/harrypotter/" target="blank">Follow me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+       <!--  About prabal -->
+       <section class="about" id="about">
+        <div class="max-width">
+        
+          <div class="about-content">
+            <div class="column left">
+              <img src="./gall/p11.png" alt="Profile Image 626x626">
+            </div>
+            <div class="column right">
+              <div class="text">Hello, I'm Prabal Mahajan (Batsman) <span class="typing-2"></span></div>
+              <p style="color: #ffffff;">"Introduce yourself, your passion for cricket and other sports,give message to onboarding students.
+                Future prospects of this club, and share other plans and how each one is benefitted and Opportunities are given."
+                   </p>
+              
+    
+              <a href="https://www.instagram.com/harrypotter/" target="blank">Follow me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<div class="profile">
+      <section >
+        <div class="box box-1"></div>
+        <div class="box box-2"></div>
+        <div class="box box-3"></div>
+        <div class="box box-4"></div>
+        <!-- <div class="box box-5"></div> -->
+        <!-- <div class="box box-6"></div> -->
+      </section>
+  </div>
+<div class="profile">
+  <section >
+    <div class="box box-5"></div>
+    <div class="box box-6"></div>
+    <div class="box box-7"></div>
+    <div class="box box-8"></div>
+    
+    <!-- <div class="box box-6"></div> -->
+  </section>
+</div>
+
+<div class="profile">
+  <section >
+    <div class="box box-9"></div>
+  <div class="box box-10"></div>
+  <div class="box box-11"></div>
+  </section>
+</div>
+      <div>
+<br>
+<br>
+<br>
+<br>
+<p style="color: #ffffff; font-weight:bolder; font-size: 30px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;">&nbsp;&nbsp;&nbsp;&nbsp; " NEVER SAY NEVER BECAUSE LIMITS, LIKE FEARS ARE OFTEN JUST AN ILLUSION " <br>
+  
+</p>
+<br>
+<p style="color: #90ede7; font-weight:bolder; font-size: 23px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- MICHAEL JORDAN</p>
+        </div>
+<!-- footer starts -->
+<footer class="footer" >
+	<div class="waves">
+		<div class="wave" id="wave1"></div>
+		<div class="wave" id="wave2"></div>
+		<div class="wave" id="wave3"></div>
+		<div class="wave" id="wave4"></div>
+	</div>
+
+	<ul class="menu">
+		<li class="menu__item"><a class="menu__link" href="./index.html" style="color: black;">Home  </a></li>
+		<li class="menu__item"><a class="menu__link" href="https://iiitbunited.wordpress.com/cricket-registrations/
+      " style="color: black;">  Register </a></li>
+		<li class="menu__item"><a class="menu__link" href="#" style="color: black;"> About Us </a></li>
+
+
+	</ul>
+  <div class="rounded-social-buttons">
+    <a class="social-button instagram" href="https://www.instagram.com/iiitbunitedofficial/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a class="social-button envelope" href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><i class="fa fa-envelope"></i></a>
+    
+</div>
+<p style="color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Queries resolved on : iiitbunited@gmail.com</p>
+<p style="color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Follow us on : <a href="https://cricheroes.com/team-profile/307733/iiitb-unitedvia/members">https://cricheroes.com/team-profile/307733/iiitb-unitedvia/members</a></p>
+
+<p style="color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Copyrights 2024: IIITB UNITED</p>
+</footer>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function () {
+  $(window).scroll(function () {
+    //  sticky navbar on scroll script  //
+    if (this.scrollY > 20) {
+      $(".navbar").addClass("sticky");
+    } else {
+      $(".navbar").removeClass("sticky");
+    }
+
+    //  scroll-up button show/hide script  //
+    if (this.scrollY > 500) {
+      $(".scroll-up-btn").addClass("show");
+    } else {
+      $(".scroll-up-btn").removeClass("show");
+    }
+  });
+
+  //  slide-up script  //
+
+  $(".scroll-up-btn").click(function () {
+    $("html").animate({ scrollTop: 0 });
+    //  removing smooth scroll on slide-up button click  //
+    $("html").css("scrollBehavior", "auto");
+  });
+
+  $(".navbar .menu li a").click(function () {
+    //  Smooth scroll on Menu Items click  //
+
+    $("html").css("scrollBehavior", "smooth");
+  });
+
+  //  Toggle Navbar  //
+
+  $(".menu-btn").click(function () {
+    $(".navbar .menu").toggleClass("active");
+    $(".menu-btn i").toggleClass("active");
+  });
+
+  //  Typing Text Animation  //
+
+  var typed = new Typed(".typing", {
+    strings: [
+      "Fullstack Developer",
+      "Software Developer",
+      "Python Developer",
+      "Founder",
+      "Author"
+    ],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true
+  });
+
+  var typed = new Typed(".typing-2", {
+    strings: [
+      "Fullstack Developer",
+      "Software Developer",
+      "Python Developer",
+      "Founder",
+      "Author"
+    ],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true
+  });
+
+  //  Owl Carousel  //
+
+  $(".carousel").owlCarousel({
+    margin: 20,
+    loop: true,
+    autoplay: true,
+    autoplayTimeOut: 2000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: false
+      },
+      600: {
+        items: 2,
+        nav: false
+      },
+      1000: {
+        items: 3,
+        nav: false
+      }
+    }
+  });
+});
+
+    </script>
